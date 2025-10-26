@@ -10,7 +10,7 @@ import { useLocation } from 'react-router';
 
 const HomePage = () => {
 	// ⚡ Kết nối tới backend
-	const socket = io(['http://localhost:5001', "https://game2dart-backend.onrender.com"]);
+	const socket = io('http://localhost:5001');
 
 	const [items, setItems] = useState([]);
 	const [selectedOutfitName, setSelectedOutfitName] = useState('');
