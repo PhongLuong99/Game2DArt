@@ -5,12 +5,13 @@ import { Server } from 'socket.io';
 import {initializeApp, cert} from 'firebase-admin/app';
 import {getFirestore, Timestamp, FieldValue} from 'firebase-admin/firestore';
 import {getStorage, getDownloadURL} from 'firebase-admin/storage';
-import serviceAccount from '../vinhbidien-a7303-firebase-adminsdk-1bi56-ff3db99f9f.json' with { type: 'json' } ;
 import path from 'path';
+import dotenv from 'dotenv'
 
 const app = express();
 const server = http.createServer(app);
 const __dirname = path.resolve();
+dotenv.config();
 
 app.use(express.json());
 
@@ -18,8 +19,7 @@ app.use(cors());
 const io = new Server(server, {
   cors: {
 	origin: [
-		'http://localhost:5173',
-		'https://game2dart.onrender.com/'
+		'http://localhost:5173'
 	],
 	methods: ["GET", "POST"],
 	credentials: true,
@@ -34,8 +34,12 @@ app.get(["/","/control" ], (req, res ) => {
 
 // 🔥 Firebase Admin init
 initializeApp({
-	credential: cert(serviceAccount),
-	storageBucket: 'vinhbidien-a7303.appspot.com'
+	credential: cert({
+		projectId: process.env.FIREBASE_PROJECT_ID,
+		clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
+		privateKey: process.env.FIREBASE_PRIVATE_KEY,
+	}),
+	storageBucket: process.env.FIREBASE_STORAGE_BUCKET
 });
 const db = getFirestore();
 const bucket = getStorage().bucket();
