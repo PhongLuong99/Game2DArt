@@ -10,9 +10,7 @@ import { useLocation } from 'react-router';
 
 const HomePage = () => {
 	// ⚡ Kết nối tới backend
-	const socket = io("http://localhost:5001" ,{
-		 transports: ["websocket"],
-	});
+	const socket = io("ws://localhost:5001" ,{transports: ["websocket"]});
 
 	const [items, setItems] = useState([]);
 	const [selectedOutfitName, setSelectedOutfitName] = useState('');
@@ -23,6 +21,7 @@ const HomePage = () => {
 	const capturedImage = location.state?.capturedImage || null;
 
 	useEffect(() => {
+		
 		// Nhận dữ liệu realtime
 		socket.on('dataSaved', (data) => {
 			setItems(data);
