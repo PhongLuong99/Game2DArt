@@ -10,15 +10,21 @@ import path from 'path';
 
 const app = express();
 const server = http.createServer(app);
+const __dirname = path.resolve();
 
 app.use(express.json());
 
 app.use(cors());
 const io = new Server(server, {
   cors: {
-	origin: ['http://localhost:5173','http://192.168.1.212:5173']
+	origin: 'http://localhost:5173'
   }
 });
+
+app.use(express.static(path.join(__dirname, "../frontend/dist")))
+app.get(["/","/control" ], (req, res ) => {
+	res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
+})
 
 
 // 🔥 Firebase Admin init
