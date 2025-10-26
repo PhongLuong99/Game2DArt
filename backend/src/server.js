@@ -18,24 +18,25 @@ app.use(express.json());
 app.use(cors());
 const io = new Server(server, {
   cors: {
-	origin: 
-		'http://localhost:5173',
-		methods: ["GET", "POST"],
-		credentials: true,
+	origin: [ 
+		'http://localhost:5173'
+	],
+	methods: ["GET", "POST"],
+	credentials: true,
   }
 });
 
 if(process.env.NODE_ENV === 'production'){
 	app.use(express.static(path.join(__dirname, "../frontend/dist")))
-	app.get("*", (req, res ) => {
+	app.get(/(.*)/, (req, res ) => {
 	res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
 });
 }
 
-app.use(express.static(path.join(__dirname, "../frontend/dist")))
-app.get(["/","/control" ], (req, res ) => {
-	res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
-})
+// app.use(express.static(path.join(__dirname, "../frontend/dist")))
+// app.get(["/","/control" ], (req, res ) => {
+// 	res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
+// })
 
 
 // 🔥 Firebase Admin init
