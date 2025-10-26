@@ -5,7 +5,7 @@ import { Server } from 'socket.io';
 import {initializeApp, cert} from 'firebase-admin/app';
 import {getFirestore, Timestamp, FieldValue} from 'firebase-admin/firestore';
 import {getStorage, getDownloadURL} from 'firebase-admin/storage';
-import serviceAccount from '../src/vinhbidien-a7303-firebase-adminsdk-1bi56-a31877d92b.json' with { type: 'json' } ;
+import serviceAccount from '..' with { type: 'json' } ;
 import path from 'path';
 
 const app = express();
