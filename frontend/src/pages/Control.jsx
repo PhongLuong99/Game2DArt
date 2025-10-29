@@ -50,7 +50,9 @@ const Control = () => {
 
 		// Tạo vùng tròn
 		ctx.beginPath();
-		ctx.arc(size / 2, size / 2, size / 2, 0, Math.PI * 2);
+		const radiusX = size / 2.5;
+		const radiusY = size / 2;
+		ctx.ellipse(size / 2, size / 2, radiusX, radiusY, 0, 0, Math.PI * 2);
 		ctx.closePath();
 		ctx.clip();
 
@@ -88,7 +90,9 @@ const Control = () => {
         		📸 Giữ khuôn mặt bạn trong vòng tròn
       		</div>
 			 {/* Khung tròn crop */}
-      <div className="relative w-[300px] h-[300px] rounded-full overflow-hidden border-4 border-white shadow-[0_0_20px_rgba(0,0,0,0.6)]">
+      <div className="relative w-[400px] h-[400px]  
+	  overflow-hidden [clip-path:ellipse(40%_49%_at_50%_50%)] 
+	  shadow-[0_0_20px_rgba(0,0,0,0.6)] border-4 border-white bg-black">
         <video
           ref={videoRef}
           playsInline
@@ -116,7 +120,7 @@ const Control = () => {
           		<img
             		src={capturedImage}
             		alt="captured"
-            		className="w-28 h-28 rounded-full border-2 border-white object-cover"
+            		className="w-28 h-28 rounded-full  object-cover"
           		/>
         </div>
       )}		
