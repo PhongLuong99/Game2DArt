@@ -81,6 +81,7 @@ io.on('connection', (socket) => {
 			nameOutfit: data.nameOutfit,
 			nameAccessory: data.nameAccessory,
 			URLImageFace: url,
+			nameHat: data.nameHat,
 			timestamp: FieldValue.serverTimestamp(),
 		});
 		 

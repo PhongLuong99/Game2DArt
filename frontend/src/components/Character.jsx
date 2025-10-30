@@ -1,40 +1,54 @@
 import React from 'react';
 
-const Character = ({outfitImage, accessoryImage, faceImage}) => {
+const Character = ({outfitImage, accessoryImage, faceImage, hatImage}) => {
 
   return (
-	<div className='flex flex-col justify-center items-center h-[80vh] relative'>
+	<div className=' relative flex flex-col justify-center items-center mb-0 mt-[-30px] h-[52vh] w-full overflow-hidden'>
 
-		{/* Ảnh trang sức (nằm phía trên) */}
-		{accessoryImage && (
-		<div className="flex justify-center mb-[-50px] z-10">
+		{/* Ảnh Mũ (nằm phía trên) */}
+		{hatImage && (
+		<div className="absolute flex justify-center  z-30 top-[-5%]">
+			<img 
+				src={hatImage} 
+				alt="hat" 
+				className=' w-48 h-auto  object-contain  select-none pointer-events-none'
+			/>
+		</div>
+		)}
+
+		{/* Ảnh Kính (nằm đè lên face) */} 
+		{accessoryImage && ( 
+			<div className=" absolute flex justify-center z-20 top-[10%]"> 
 			<img 
 				src={accessoryImage} 
 				alt="accessory" 
-				className='w-40 h-auto object-contain select-none pointer-events-none'
-			/>
-		</div>
+				className='w-50 h-auto object-contain select-none pointer-events-none' 
+				/> 
+			</div> 
+		)} 
+		
+		{/* Ảnh selfie (ở giữa, tròn) */} 
+		{faceImage &&( 
+			<div className='absolute top-[17%] z-10 flex justify-center'> 
+			<img 
+				src={faceImage} 
+				alt="captured" 
+				className='w-37 h-37 rounded-full object-cover shadow-lg select-none pointer-events-none [clip-path:ellipse(40%_49%_at_50%_50%)]' 
+				/> 
+			</div> 
 		)}
-		{/* Ảnh selfie (ở giữa, tròn) */}
-		{faceImage &&(
-			<div className='flex justify-center'>
-				<img 
-					src={faceImage} 
-					alt="captured"
-					className='w-48 h-48 rounded-full object-cover border-4 border-white shadow-lg select-none pointer-events-none [clip-path:ellipse(40%_49%_at_50%_50%)]'
-				/>
-			</div>
-		)}
+
 		{/* Ảnh trang phục (nằm phía dưới) */}
 		{outfitImage &&(
-		<div className="flex justify-center">
+		<div className=" absolute z-0 bottom-[8%] flex justify-center">
 			<img 
 				src={outfitImage} 
 				alt="outfit" 
-				className='w-64 h-auto object-contain drop-shadow-lg select-none pointer-events-none'
+				className='w-60 h-auto object-contain drop-shadow-lg select-none pointer-events-none'
 			/>
 		</div>
 		)}
+
 	</div>
   );
 }

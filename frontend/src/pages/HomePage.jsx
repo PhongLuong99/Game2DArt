@@ -5,7 +5,7 @@ import { io } from 'socket.io-client';
 import Character from '@/components/Character';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
-import { useLocation } from 'react-router';
+import { useAsyncError, useLocation } from 'react-router';
 
 
 const HomePage = () => {
@@ -15,8 +15,12 @@ const HomePage = () => {
 	const [items, setItems] = useState([]);
 	const [selectedOutfitName, setSelectedOutfitName] = useState('');
 	const [selectedAccessoryName, setSelectedAccessoryName] = useState('');
+	const [selectedCapName, setSelectedCapName] = useState('');
+
 	const [selectedItem, setSelectedItem] = useState(null);
 	const [selectedOutfit, setSelectedOutfit] = useState(null);
+	const [selectedCap, setSelectedCap] = useState(null);
+
 	const location = useLocation();
 	const capturedImage = location.state?.capturedImage || null;
 
@@ -32,7 +36,12 @@ const HomePage = () => {
 
 	const sendData = () => {
 		console.log(selectedOutfitName, selectedAccessoryName, capturedImage);
-		socket.emit('sendDataToServer', { nameOutfit: selectedOutfitName, nameAccessory: selectedAccessoryName, UrlImageFace: capturedImage });
+		socket.emit('sendDataToServer', { 
+			nameOutfit: selectedOutfitName, 
+			nameAccessory: selectedAccessoryName, 
+			UrlImageFace: capturedImage,
+			nameHat: selectedCapName, 
+		});
 	};
 
   return (
@@ -49,15 +58,19 @@ const HomePage = () => {
 					accessoryImage={selectedItem}
 					outfitImage={selectedOutfit}
 					faceImage={capturedImage}
+					hatImage={selectedCap}
 				/>
 				
 			<div className='flex flex-col items-center justify-between gap-6 sm:flex-row'>
 			{/* Phụ kiện */}
 				<Accessory  
 					setSelectedAccessory={setSelectedItem}
-					setSelectedOutfit={setSelectedOutfit}
+					setSelectedOutfit={setSelectedOutfit}	
+					setSelectedHat={setSelectedCap}
+
 					setSelectedOutfitName={setSelectedOutfitName}
-					setSelectedAccessoryName={setSelectedAccessoryName}
+					setSelectedAccessoryName={setSelectedAccessoryName}	
+					setSelectedHatName={setSelectedCapName}
 				/>
 			</div>
 			{/* Cuối trang */}

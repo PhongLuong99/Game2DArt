@@ -71,38 +71,42 @@ const AccessoryData = [
 	name: 'G10',
 	image: kinhtronvang
   },
-  {
-	id: 11,
+  
+];
+
+const HatData = [
+	{
+	id: 1,
 	name: 'S1',
 	image: khanbao
   },
   {
-	id: 12,
+	id: 2,
 	name: 'S2',
 	image: khanxam
   },
   {
-	id: 13,
+	id: 3,
 	name: 'S3',
 	image: khanxanh
   },
   {
-	id: 14,
+	id: 4,
 	name: 'S4',
 	image: khanvang
   },
   {
-	id: 15,
+	id: 5,
 	name: 'S5',
 	image: khando
   },
   {
-	id: 16,
+	id: 6,
 	name: 'H1',
 	image: mulinhcam
   },
   {
-	id: 17,
+	id: 7,
 	name: 'H2',
 	image: mulinhdo
   }
@@ -121,4 +125,4 @@ const OutfitData = [
 	}
 ];
 
-export { AccessoryData, OutfitData };
+export { AccessoryData, OutfitData, HatData };
