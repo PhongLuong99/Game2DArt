@@ -82,6 +82,7 @@ io.on('connection', (socket) => {
 			nameAccessory: data.nameAccessory,
 			URLImageFace: url,
 			nameHat: data.nameHat,
+			hasPlayer: true,
 			timestamp: FieldValue.serverTimestamp(),
 		});
 		 
