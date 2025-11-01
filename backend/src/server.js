@@ -77,12 +77,12 @@ io.on('connection', (socket) => {
 		});
 		
 		// Đẩy dữ liệu lên Firestore
-		const Aitems = await db.collection('CharacterPixel').add({
+		
+		const Aitems = await db.collection('CharacterPixel').doc('Game2DArt').set({
 			nameOutfit: data.nameOutfit,
 			nameAccessory: data.nameAccessory,
 			URLImageFace: url,
 			nameHat: data.nameHat,
-			hasPlayer: true,
 			timestamp: FieldValue.serverTimestamp(),
 		});
 		 
