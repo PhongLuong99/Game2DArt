@@ -71,6 +71,16 @@ const AccessoryData = [
 	name: 'G10',
 	image: kinhtronvang
   },
+  {
+	id: 11,
+	name: 'K1',
+	image: khanxanh
+  },
+  {
+	id: 12,
+	name: 'K2',
+	image: khanvang
+  },
   
 ];
 
@@ -85,28 +95,28 @@ const HatData = [
 	name: 'S2',
 	image: khanxam
   },
+//   {
+// 	id: 3,
+// 	name: 'S3',
+// 	image: khanxanh
+//   },
+//   {
+// 	id: 4,
+// 	name: 'S3',
+// 	image: khanvang
+//   },
   {
 	id: 3,
 	name: 'S3',
-	image: khanxanh
-  },
-  {
-	id: 4,
-	name: 'S4',
-	image: khanvang
-  },
-  {
-	id: 5,
-	name: 'S5',
 	image: khando
   },
   {
-	id: 6,
+	id: 4,
 	name: 'H1',
 	image: mulinhcam
   },
   {
-	id: 7,
+	id: 5,
 	name: 'H2',
 	image: mulinhdo
   }

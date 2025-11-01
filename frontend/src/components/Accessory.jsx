@@ -35,12 +35,12 @@ const Accessory = ({setSelectedAccessory, setSelectedOutfit, setSelectedHat , se
 	</div>
 
 {/* Thêm các mục Hat vào đây */}
-	<div className='flex gap-4  '>
+	<div className='flex gap-4 '>
 	  <Carousel
 	  	opts={{
         align: "start",
       }}
-      className="w-full max-w-sm"
+      className="w-full max-w-sm "
 	  >
 		<CarouselContent>
 		  {HatData.map((hat) => (
@@ -76,7 +76,7 @@ const Accessory = ({setSelectedAccessory, setSelectedOutfit, setSelectedHat , se
 				<CarouselItem 
 					key={outfit.id} 
 					onClick={() => [setSelectedOutfit(outfit.image), setSelectedOutfitName(outfit.name)]}
-					className="md:basis-1/3 basis-1/3"
+					className="md:basis-1/3 basis-1/2"
 				>
 				  <img 
 				  	src={outfit.image} 

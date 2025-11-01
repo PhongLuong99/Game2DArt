@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { useNavigate } from 'react-router';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
+import backGImage from '../assets/Background/Theme Face  copy.png';
 
 const Control = () => {
 
@@ -100,7 +101,7 @@ const Control = () => {
 			return (
 				<div
 					onClick={onReset}
-					className='w-35 h-35 rounded-xl border-4
+					className='w-40 h-40 rounded-xl border-4
 					 border-white shadow-xl overflow-hidden 
 					 cursor-pointer ring-4 ring-cyan-500 
 					 transition duration-300 hover:ring-8 active:scale-95'
@@ -121,7 +122,7 @@ const Control = () => {
 			<button
 				onClick={onCapture}
 				disabled={isLoading}
-				className={`w-35 h-35 rounded-xl shadow-xl border-4 border-white transition-all duration-300 
+				className={`w-40 h-40 rounded-xl shadow-xl border-4 border-white transition-all duration-300 
           		flex flex-col items-center justify-center 
           		${isLoading ? 'bg-gray-400 cursor-not-allowed' : 'bg-cyan-500 hover:bg-cyan-600 active:scale-95'}`}
 			>
@@ -143,7 +144,11 @@ const Control = () => {
 	// --- MAIN RENDER ---
   return (
 	
-	<div className="relative bg-green-200 flex flex-col items-center justify-center h-screen  font-sans p-4">
+	<div className="relative flex flex-col items-center justify-center h-screen  font-sans p-4 bg-cover bg-center"
+		style={{
+			backgroundImage: `url(${backGImage})`
+		}}
+	>
 		<Button
 					onClick={goToHomePage}
 					className=" absolute top-1 z-10 w-65 h-12 p-6"
@@ -151,7 +156,7 @@ const Control = () => {
 						<ArrowRight className="h-5 w-5 text-white"/>
 				</Button>
 		
-		<div className=" w-full h-105 max-w-lg mt-[-250px] bg-black shadow-2xl rounded-full overflow-hidden flex items-center justify-center">
+		<div className=" w-full h-105 max-w-lg mt-[-250px]  shadow-2xl rounded-full overflow-hidden flex items-center justify-center">
 			<video ref={videoRef} className="absolute w-full h-full object-cover -scale-x-100"></video>
 			
 			 {/* Khung tròn crop */}
@@ -176,7 +181,7 @@ const Control = () => {
       >
         📷
       </button> */}
-	  <div className='absolute bottom-45 left-1/2 transform -translate-x-1/2 z-30'>
+	  <div className='absolute bottom-50 left-1/2 transform -translate-x-1/2 z-30'>
 			<CaptureButton
 				imageI={capturedImage}
 				onCapture={handleCapture}
@@ -189,7 +194,7 @@ const Control = () => {
 	  
  			<canvas ref={canvasRef} className="hidden" />
 		{/* Instructions */}
-      <p className=" p-5 absolute bottom-20 text-gray-600 text-center max-w-lg z-20">
+      <p className=" p-5 absolute bottom-30 text-gray-600 text-center max-w-lg z-20">
         <span className="font-semibold text-cyan-600">Trạng thái:</span>{" "}
         {capturedImage ? 'Ảnh đã chụp và đang hiển thị trên nút. Nhấn vào ảnh để chụp lại.' : 'Sẵn sàng chụp. Nhấn "TAKE".'}
       </p>

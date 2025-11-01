@@ -3,11 +3,11 @@ import React from 'react';
 const Character = ({outfitImage, accessoryImage, faceImage, hatImage}) => {
 
   return (
-	<div className=' relative flex flex-col justify-center items-center mb-0 mt-[-30px] h-[52vh] w-full overflow-hidden'>
+	<div className=' relative flex flex-col justify-center items-center mb-0 mt-[-30px] h-[54vh] w-full overflow-hidden'>
 
 		{/* Ảnh Mũ (nằm phía trên) */}
 		{hatImage && (
-		<div className="absolute flex justify-center  z-30 top-[-5%]">
+		<div className="absolute flex justify-center  z-30 top-[-1%]">
 			<img 
 				src={hatImage} 
 				alt="hat" 
@@ -18,7 +18,7 @@ const Character = ({outfitImage, accessoryImage, faceImage, hatImage}) => {
 
 		{/* Ảnh Kính (nằm đè lên face) */} 
 		{accessoryImage && ( 
-			<div className=" absolute flex justify-center z-20 top-[10%]"> 
+			<div className=" absolute flex justify-center z-20 top-[12%]"> 
 			<img 
 				src={accessoryImage} 
 				alt="accessory" 
@@ -29,7 +29,7 @@ const Character = ({outfitImage, accessoryImage, faceImage, hatImage}) => {
 		
 		{/* Ảnh selfie (ở giữa, tròn) */} 
 		{faceImage &&( 
-			<div className='absolute top-[17%] z-10 flex justify-center'> 
+			<div className='absolute top-[21%] z-10 flex justify-center'> 
 			<img 
 				src={faceImage} 
 				alt="captured" 
@@ -40,11 +40,11 @@ const Character = ({outfitImage, accessoryImage, faceImage, hatImage}) => {
 
 		{/* Ảnh trang phục (nằm phía dưới) */}
 		{outfitImage &&(
-		<div className=" absolute z-0 bottom-[8%] flex justify-center">
+		<div className=" absolute z-0 bottom-[-0%] flex justify-center">
 			<img 
 				src={outfitImage} 
 				alt="outfit" 
-				className='w-60 h-auto object-contain drop-shadow-lg select-none pointer-events-none'
+				className='w-65 h-auto object-contain drop-shadow-lg select-none pointer-events-none'
 			/>
 		</div>
 		)}
