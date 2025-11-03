@@ -2,8 +2,9 @@ import React, { useEffect, useState, useRef } from 'react';
 import { useNavigate } from 'react-router';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
-import backGImage from '../assets/Background/Theme Face.png';
+import backGImage from '../assets/Background/Theme Face.jpg';
 import buttonleft from '../assets/Background/LeftArrow.png'
+import Text_Logo from '../assets/Background/Text_Logo.png'
 
 const Control = () => {
 
@@ -145,19 +146,22 @@ const Control = () => {
 	// --- MAIN RENDER ---
   return (
 	
-	<div className="relative flex flex-col items-center justify-center min-h-screen  font-sans p-4 bg-cover bg-center overflow-hidden"
+	<div className="relative flex flex-col items-center justify-center 
+	min-h-screen  font-sans p-3 bg-cover bg-center overflow-hidden"
 		style={{
 			backgroundImage: `url(${backGImage})`
 		}}
 	>
 		<Button
-					onClick={goToHomePage}
-					className=" absolute z-30 top-2 left-0 w-16 h-16 bg-transparent p-0 shadow-none hover:scale-105 transition-transform duration-200"
-				>
-						<img src={buttonleft} alt="gotohome" className="h-full w-full object-contain" />
-				</Button>
-		
-		<div className=" w-full h-105 max-w-lg mt-[-250px]  shadow-2xl rounded-full overflow-hidden flex items-center justify-center">
+			onClick={goToHomePage}
+			className=" absolute z-30 top-2 left-0 w-16 h-16 sm:w-14 sm:h-14
+			bg-transparent p-0 shadow-none hover:scale-105 transition-transform duration-200"
+		>
+			<img src={buttonleft} alt="gotohome" className="h-full w-full object-contain" />
+		</Button>
+		 {/* Khung video chính */}
+		<div className="  w-full h-105 max-w-lg mt-[-250px]  shadow-2xl rounded-full 
+		overflow-hidden flex items-center justify-center">
 			<video ref={videoRef} className="absolute w-full h-full object-cover -scale-x-100"></video>
 			
 			 {/* Khung tròn crop */}
@@ -182,7 +186,7 @@ const Control = () => {
       >
         📷
       </button> */}
-	  <div className='absolute bottom-50 left-1/2 transform -translate-x-1/2 z-30'>
+	  <div className='absolute bottom-[22%] sm:bottom-[18%] left-1/2 transform -translate-x-1/2 z-30'>
 			<CaptureButton
 				imageI={capturedImage}
 				onCapture={handleCapture}
@@ -195,10 +199,24 @@ const Control = () => {
 	  
  			<canvas ref={canvasRef} className="hidden" />
 		{/* Instructions */}
-      <p className=" p-5 absolute bottom-30 text-gray-600 text-center max-w-lg z-20">
+      <p className="absolute bottom-[12%] left-1/2 -translate-x-1/2 
+    text-gray-700 text-center text-xs sm:text-sm leading-snug 
+    max-w-[80vw] sm:max-w-[250px] overflow-hidden 
+     backdrop-blur-md rounded-lg p-2 shadow-md z-20">
         <span className="font-semibold text-cyan-600">Trạng thái:</span>{" "}
         {capturedImage ? 'Ảnh đã chụp và đang hiển thị trên nút. Nhấn vào ảnh để chụp lại.' : 'Sẵn sàng chụp. Nhấn "TAKE".'}
       </p>
+	   {/* Logo cuối trang */}
+  <div
+    className="absolute bottom-10 sm:bottom-11 left-1/2 -translate-x-1/2 
+    w-[160px] sm:w-[200px] opacity-90 z-10"
+  >
+    <img
+      src={Text_Logo}
+      alt="Brand Logo"
+      className="w-full h-auto object-contain select-none pointer-events-none"
+    />
+  </div>
 </div>
   )
 }

@@ -6,7 +6,7 @@ import Character from '@/components/Character';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import { useAsyncError, useLocation } from 'react-router';
-import BackGHomePage from '../assets/Background/BG_Theme.png';
+import BackGHomePage from '../assets/Background/BG_Theme.jpg';
 import RightArrowBtn from '../assets/Background/RightArrow.png';
 
 
@@ -47,7 +47,8 @@ const HomePage = () => {
 	};
 
   return (
-	<div className="relative min-h-screen w-full bg-cover bg-center bg-no-repeat overflow-hidden flex flex-col items-center justify-between px-4 sm:px-6"
+	<div className="relative min-h-screen w-full bg-cover bg-center 
+	bg-no-repeat overflow-hidden flex flex-col items-center justify-between px-4 sm:px-6"
 		style={{
 			backgroundImage: `url(${BackGHomePage})`
 		}}	
@@ -69,8 +70,8 @@ const HomePage = () => {
 		</Button>
   
   {/* Your Content/Components */}
-  <div className='flex flex-col items-center justify-center w-full max-w-md sm:max-w-xl mt-16 mb-8 space-y-6 text-center'>
-		<div className='relative w-[80vw] max-w-[400px] aspect-[3/4] flex items-center justify-center mx-auto'>
+  <div className='flex flex-col items-center justify-center w-full max-w-[450px] mt-10 mb-6 space-y-4 text-center'>
+		<div className='relative w-[80vw] max-w-[380px] aspect-[3/4] flex items-center justify-center mx-auto'>
 			{/* Hiện thị nhân vật */}
 				<Character 
 					accessoryImage={selectedItem}
@@ -79,7 +80,7 @@ const HomePage = () => {
 					hatImage={selectedCap}
 				/>
 			</div>
-			<div className='w-full flex justify-center mt-5'>
+			<div className='w-full flex justify-center mt-20'>
 			{/* Phụ kiện */}
 				<Accessory  
 					setSelectedAccessory={setSelectedItem}
