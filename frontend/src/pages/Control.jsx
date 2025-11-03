@@ -152,7 +152,7 @@ const Control = () => {
 	>
 		<Button
 					onClick={goToHomePage}
-					className=" absolute top-2 left-0 w-16 h-16 bg-transparent p-0 shadow-none hover:scale-105 transition-transform duration-200"
+					className=" absolute z-30 top-2 left-0 w-16 h-16 bg-transparent p-0 shadow-none hover:scale-105 transition-transform duration-200"
 				>
 						<img src={buttonleft} alt="gotohome" className="h-full w-full object-contain" />
 				</Button>

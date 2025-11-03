@@ -79,7 +79,7 @@ const HomePage = () => {
 					hatImage={selectedCap}
 				/>
 			</div>
-			<div className='w-full flex justify-center'>
+			<div className='w-full flex justify-center mt-5'>
 			{/* Phụ kiện */}
 				<Accessory  
 					setSelectedAccessory={setSelectedItem}
