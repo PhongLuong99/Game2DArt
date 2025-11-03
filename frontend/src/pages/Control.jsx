@@ -2,7 +2,8 @@ import React, { useEffect, useState, useRef } from 'react';
 import { useNavigate } from 'react-router';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
-import backGImage from '../assets/Background/Theme Face  copy.png';
+import backGImage from '../assets/Background/Theme Face.png';
+import buttonleft from '../assets/Background/LeftArrow.png'
 
 const Control = () => {
 
@@ -144,16 +145,16 @@ const Control = () => {
 	// --- MAIN RENDER ---
   return (
 	
-	<div className="relative flex flex-col items-center justify-center h-screen  font-sans p-4 bg-cover bg-center"
+	<div className="relative flex flex-col items-center justify-center min-h-screen  font-sans p-4 bg-cover bg-center overflow-hidden"
 		style={{
 			backgroundImage: `url(${backGImage})`
 		}}
 	>
 		<Button
 					onClick={goToHomePage}
-					className=" absolute top-1 z-10 w-65 h-12 p-6"
+					className=" absolute top-2 left-0 w-16 h-16 bg-transparent p-0 shadow-none hover:scale-105 transition-transform duration-200"
 				>
-						<ArrowRight className="h-5 w-5 text-white"/>
+						<img src={buttonleft} alt="gotohome" className="h-full w-full object-contain" />
 				</Button>
 		
 		<div className=" w-full h-105 max-w-lg mt-[-250px]  shadow-2xl rounded-full overflow-hidden flex items-center justify-center">

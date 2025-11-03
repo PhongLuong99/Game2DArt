@@ -47,27 +47,30 @@ const HomePage = () => {
 	};
 
   return (
-	<div className="min-h-screen w-full  relative bg-cover bg-center bg-no-repeat"
+	<div className="relative min-h-screen w-full bg-cover bg-center bg-no-repeat overflow-hidden flex flex-col items-center justify-between px-4 sm:px-6"
 		style={{
 			backgroundImage: `url(${BackGHomePage})`
 		}}	
 	>
-  
-  {/* Your Content/Components */}
-  <div className='container mx-auto pt-8 relative z-10'>
-		<div className='w-full max-w-2xl p-6 mx-auto space-y-6'>
-			{/* Đầu trang */}
+		{/* nút gửi */}
 			<Button
 					onClick={() => {
 						sendData();
 						alert("Nhân Vật của Bạn đã ra lò!");
 					}}
 
-					className="absolute top-2 right-[10px] w-16 h-16 bg-transparent p-0 shadow-none hover:scale-105 transition-transform duration-200"
+					className="absolute top-4 right-4 w-12 h-12 
+					sm:w-16 sm:h-16 bg-transparent p-0 shadow-none 
+					hover:scale-105 transition-transform duration-200 z-20"
 				>
-					<img src={RightArrowBtn} alt="Send" className="w-full h-full object-contain"/>
-				</Button>
-				{/* <Header/> */}
+					<img src={RightArrowBtn} 
+					alt="Send" 
+					className="w-full h-full object-contain"/>
+		</Button>
+  
+  {/* Your Content/Components */}
+  <div className='flex flex-col items-center justify-center w-full max-w-md sm:max-w-xl mt-16 mb-8 space-y-6 text-center'>
+		<div className='relative w-[80vw] max-w-[400px] aspect-[3/4] flex items-center justify-center mx-auto'>
 			{/* Hiện thị nhân vật */}
 				<Character 
 					accessoryImage={selectedItem}
@@ -75,8 +78,8 @@ const HomePage = () => {
 					faceImage={capturedImage}
 					hatImage={selectedCap}
 				/>
-				
-			<div className='flex flex-col items-center justify-between mt-9 mb-0 gap-6 sm:flex-row'>
+			</div>
+			<div className='w-full flex justify-center'>
 			{/* Phụ kiện */}
 				<Accessory  
 					setSelectedAccessory={setSelectedItem}
@@ -88,10 +91,7 @@ const HomePage = () => {
 					setSelectedHatName={setSelectedCapName}
 				/>
 			</div>
-			{/* Cuối trang */}
 			
-			
-		</div>
 	</div>
 		
 </div>
