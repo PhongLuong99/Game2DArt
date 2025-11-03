@@ -199,13 +199,13 @@ const Control = () => {
 	  
  			<canvas ref={canvasRef} className="hidden" />
 		{/* Instructions */}
-      <p className="absolute bottom-[12%] left-1/2 -translate-x-1/2 
+      {/* <p className="absolute bottom-[12%] left-1/2 -translate-x-1/2 
     text-gray-700 text-center text-xs sm:text-sm leading-snug 
     max-w-[80vw] sm:max-w-[250px] overflow-hidden 
      backdrop-blur-md rounded-lg p-2 shadow-md z-20">
         <span className="font-semibold text-cyan-600">Trạng thái:</span>{" "}
         {capturedImage ? 'Ảnh đã chụp và đang hiển thị trên nút. Nhấn vào ảnh để chụp lại.' : 'Sẵn sàng chụp. Nhấn "TAKE".'}
-      </p>
+      </p> */}
 	   {/* Logo cuối trang */}
   <div
     className="absolute bottom-10 sm:bottom-11 left-1/2 -translate-x-1/2 

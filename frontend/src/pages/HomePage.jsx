@@ -57,7 +57,7 @@ const HomePage = () => {
 			<Button
 					onClick={() => {
 						sendData();
-						alert("Nhân Vật của Bạn đã ra lò!");
+						alert("Have a nice day!");
 					}}
 
 					className="absolute top-4 right-4 w-12 h-12 
