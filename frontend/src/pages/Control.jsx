@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import backGImage from '../assets/Background/Theme Face.jpg';
-import buttonleft from '../assets/Background/LeftArrow.png'
+import buttonright from '../assets/Background/RightArrow.png'
 import Text_Logo from '../assets/Background/Text_Logo.png'
 
 const Control = () => {
@@ -154,10 +154,10 @@ const Control = () => {
 	>
 		<Button
 			onClick={goToHomePage}
-			className=" absolute z-30 top-2 left-0 w-16 h-16 sm:w-14 sm:h-14
+			className=" absolute z-30 top-5 right-5 w-16 h-16 sm:w-14 sm:h-14
 			bg-transparent p-0 shadow-none hover:scale-105 transition-transform duration-200"
 		>
-			<img src={buttonleft} alt="gotohome" className="h-full w-full object-contain" />
+			<img src={buttonright} alt="gotohome" className="h-full w-full object-contain" />
 		</Button>
 		 {/* Khung video chính */}
 		<div className="  w-full h-105 max-w-lg mt-[-250px]  shadow-2xl rounded-full 
@@ -199,13 +199,13 @@ const Control = () => {
 	  
  			<canvas ref={canvasRef} className="hidden" />
 		{/* Instructions */}
-      {/* <p className="absolute bottom-[12%] left-1/2 -translate-x-1/2 
+      <p className="absolute bottom-[12%] left-1/2 -translate-x-1/2 
     text-gray-700 text-center text-xs sm:text-sm leading-snug 
     max-w-[80vw] sm:max-w-[250px] overflow-hidden 
      backdrop-blur-md rounded-lg p-2 shadow-md z-20">
         <span className="font-semibold text-cyan-600">Trạng thái:</span>{" "}
         {capturedImage ? 'Ảnh đã chụp và đang hiển thị trên nút. Nhấn vào ảnh để chụp lại.' : 'Sẵn sàng chụp. Nhấn "TAKE".'}
-      </p> */}
+      </p>
 	   {/* Logo cuối trang */}
   <div
     className="absolute bottom-10 sm:bottom-11 left-1/2 -translate-x-1/2 
