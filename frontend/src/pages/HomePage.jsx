@@ -57,7 +57,7 @@ const HomePage = () => {
 			<Button
 					onClick={() => {
 						sendData();
-						alert("Have a nice day!");
+						alert("Chờ một chút nhé nhân vật của bạn sẽ xuất hiện ngay, Have a nice day!");
 					}}
 
 					className="absolute top-4 right-4 w-12 h-12 
