@@ -60,18 +60,31 @@ io.on('connection', (socket) => {
 	try {
 		// Đẩy dữ liệu lên Storage
 		const imageBase64 = data.UrlImageFace;
+		const imageBase64_2 = data.UrlImageFace2;
 
 		const base64Data = imageBase64.replace(/^data:image\/\w+;base64,/, "");
+		const base64Data_2 = imageBase64_2.replace(/^data:image\/\w+;base64,/, "");
 		const buffer = Buffer.from(base64Data, "base64")
+		const buffer2 = Buffer.from(base64Data_2, "base64")
 
 		const fileName = `upload/${Date.now()}.png`
 		const blob = bucket.file(fileName)
 
+		const fileName2 = `upload/${Date.now()}2.png`
+		const blob2 = bucket.file(fileName2)
+
 		await blob.save( buffer, {
+			metadata: { contentType: "image/png" },
+		});
+		await blob2.save( buffer2, {
 			metadata: { contentType: "image/png" },
 		});
 
 		const [url] = await blob.getSignedUrl({
+			action: "read",
+			expires: "03-09-2491",
+		});
+		const [url2] = await blob2.getSignedUrl({
 			action: "read",
 			expires: "03-09-2491",
 		});
@@ -82,6 +95,7 @@ io.on('connection', (socket) => {
 			nameOutfit: data.nameOutfit,
 			nameAccessory: data.nameAccessory,
 			URLImageFace: url,
+			UrlImageFace2: url2,
 			nameHat: data.nameHat,
 			timestamp: FieldValue.serverTimestamp(),
 		});

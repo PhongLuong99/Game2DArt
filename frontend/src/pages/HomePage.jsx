@@ -24,7 +24,7 @@ const HomePage = () => {
 	const [selectedCap, setSelectedCap] = useState(null);
 
 	const location = useLocation();
-	const capturedImage = location.state?.capturedImage || null;
+	const {capturedImage, capturedImage2} = location.state || null;
 
 	useEffect(() => {
 		
@@ -42,6 +42,7 @@ const HomePage = () => {
 			nameOutfit: selectedOutfitName, 
 			nameAccessory: selectedAccessoryName, 
 			UrlImageFace: capturedImage,
+			UrlImageFace2: capturedImage2,
 			nameHat: selectedCapName, 
 		});
 	};
@@ -78,6 +79,7 @@ const HomePage = () => {
 					outfitImage={selectedOutfit}
 					faceImage={capturedImage}
 					hatImage={selectedCap}
+					faceImage2={capturedImage2}
 				/>
 			</div>
 			<div className='w-full flex justify-center mt-20'>

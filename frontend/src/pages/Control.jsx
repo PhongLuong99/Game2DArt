@@ -12,8 +12,11 @@ const Control = () => {
 	const canvasRef = useRef(null);
 
 	const [capturedImage, setCapturedImage] = useState(null);
+	const [capturedImage2, setCapturedImage2] = useState(null);
 	const [isReady, setIsReady] = useState(false);
 	const [loading, setLoading] = useState(false);
+	const [loading2, setLoading2] = useState(false);
+
 	const navigate = useNavigate();
 
 	const StartCamera = () => {
@@ -37,11 +40,12 @@ const Control = () => {
 	};
 
 	// Chụp ảnh từ video
-	const handleCapture = () => {
-		if (loading) return;
+	const handleCapture = ( target = 'first') => {
+		if ( target === 'first' && loading) return;
+		if ( target === 'second' && loading2) return;
 
-    	setLoading(true);
-
+		if ( target === 'first') setLoading(true);
+		if ( target === 'second') setLoading2(true);
 		
 		const video = videoRef.current;
 		const canvas = canvasRef.current;
@@ -81,8 +85,14 @@ const Control = () => {
 
 		 // Simulate a slight delay for processing
 		setTimeout(() => {
-			setCapturedImage(dataURL);
-			setLoading(false);
+			if (target === 'first'){
+				setCapturedImage(dataURL);
+				setLoading(false)
+			} else if ( target === 'second'){
+				setCapturedImage2(dataURL)
+				setLoading2(false)
+			}
+			
 		},500);
 		
 
@@ -92,8 +102,12 @@ const Control = () => {
 		setCapturedImage(null);
 	}
 
+	const handleReset2 = () => {
+		setCapturedImage2(null);
+	}
+
 	const goToHomePage = () => {
-		navigate('/', { state: { capturedImage }});
+		navigate('/', { state: { capturedImage, capturedImage2 }});
 		console.log("hello")
 	};
 
@@ -186,12 +200,21 @@ const Control = () => {
       >
         📷
       </button> */}
-	  <div className='absolute bottom-[22%] sm:bottom-[18%] left-1/2 transform -translate-x-1/2 z-30'>
+	  <div className='absolute bottom-[22%] sm:bottom-[18%] left-1/4 -transform -translate-x-1/2 z-30'>
 			<CaptureButton
 				imageI={capturedImage}
-				onCapture={handleCapture}
+				onCapture={() => handleCapture('first')}
 				onReset={handleReset}
 				isLoading={loading}
+			>
+			</CaptureButton>
+	  </div>
+	  <div className='absolute bottom-[22%] sm:bottom-[18%] right-1/4  transform translate-x-1/2 z-30'>
+			<CaptureButton
+				imageI={capturedImage2}
+				onCapture={() => handleCapture('second')}
+				onReset={handleReset2}
+				isLoading={loading2}
 			>
 			</CaptureButton>
 	  </div>
